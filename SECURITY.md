@@ -131,4 +131,4 @@ We appreciate the security research community's efforts in helping keep Fortify 
 For security-related inquiries, please contact:
 
 - Email: [security@example.com]
-- GitHub Security Advisories: [https://github.com/felixgeelhaar/fortify-ts/security/advisories](https://github.com/felixgeelhaar/fortify-ts/security/advisories)
+- GitHub Security Advisories: [https://github.com/klarlabs-studio/fortify-ts/security/advisories](https://github.com/klarlabs-studio/fortify-ts/security/advisories)

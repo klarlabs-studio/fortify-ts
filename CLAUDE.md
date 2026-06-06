@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Fortify TS is a production-grade resilience and fault-tolerance library for TypeScript, implementing patterns similar to the Go library [fortify](https://github.com/felixgeelhaar/fortify). All core packages are browser-compatible and use standard APIs (AbortController, Promise, Map).
+Fortify TS is a production-grade resilience and fault-tolerance library for TypeScript, implementing patterns similar to the Go library [fortify](https://github.com/klarlabs-studio/fortify). All core packages are browser-compatible and use standard APIs (AbortController, Promise, Map).
 
 ## Development Commands
 

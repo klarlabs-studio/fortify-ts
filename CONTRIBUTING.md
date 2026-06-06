@@ -210,7 +210,7 @@ pnpm test:coverage
 
 ## Getting Help
 
-- Open a [Discussion](https://github.com/felixgeelhaar/fortify-ts/discussions) for questions
+- Open a [Discussion](https://github.com/klarlabs-studio/fortify-ts/discussions) for questions
 - Check existing issues and discussions first
 - Join our community channels (if available)
 

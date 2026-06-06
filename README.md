@@ -2,7 +2,7 @@
 
 Production-grade resilience and fault-tolerance library for TypeScript.
 
-[![CI](https://github.com/felixgeelhaar/fortify-ts/actions/workflows/ci.yml/badge.svg)](https://github.com/felixgeelhaar/fortify-ts/actions/workflows/ci.yml)
+[![CI](https://github.com/klarlabs-studio/fortify-ts/actions/workflows/ci.yml/badge.svg)](https://github.com/klarlabs-studio/fortify-ts/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org)
@@ -190,7 +190,7 @@ Fortify TS is written in TypeScript and provides full type safety:
 
 ## Inspired By
 
-This library is a TypeScript port of [fortify](https://github.com/felixgeelhaar/fortify), a Go resilience library implementing similar patterns.
+This library is a TypeScript port of [fortify](https://github.com/klarlabs-studio/fortify), a Go resilience library implementing similar patterns.
 
 ## Requirements
 

@@ -32,4 +32,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - AbortSignal support for cancellation
 - Comprehensive test coverage
 
-[Unreleased]: https://github.com/felixgeelhaar/fortify-ts/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/klarlabs-studio/fortify-ts/compare/v0.1.0...HEAD

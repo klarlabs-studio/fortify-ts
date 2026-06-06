@@ -47,12 +47,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/felixgeelhaar/fortify-ts.git",
+    "url": "https://github.com/klarlabs-studio/fortify-ts.git",
     "directory": "packages/metrics"
   },
-  "homepage": "https://github.com/felixgeelhaar/fortify-ts/tree/main/packages/metrics#readme",
+  "homepage": "https://github.com/klarlabs-studio/fortify-ts/tree/main/packages/metrics#readme",
   "bugs": {
-    "url": "https://github.com/felixgeelhaar/fortify-ts/issues"
+    "url": "https://github.com/klarlabs-studio/fortify-ts/issues"
   },
   "engines": {
     "node": ">=20.0.0"

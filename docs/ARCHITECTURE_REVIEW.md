@@ -33,12 +33,12 @@ The implementation perfectly matches the documented architecture:
 ```bash
 packages/
 ├── core/           # Foundation: ✅ zod dependency only
-├── circuit-breaker/# ✅ depends on @fortify-ts/core
-├── retry/          # ✅ depends on @fortify-ts/core
-├── timeout/        # ✅ depends on @fortify-ts/core
-├── rate-limit/     # ✅ depends on @fortify-ts/core
-├── bulkhead/       # ✅ depends on @fortify-ts/core
-├── fallback/       # ✅ depends on @fortify-ts/core
+├── circuit-breaker/# ✅ depends on @klarlabs-studio/fortify-core
+├── retry/          # ✅ depends on @klarlabs-studio/fortify-core
+├── timeout/        # ✅ depends on @klarlabs-studio/fortify-core
+├── rate-limit/     # ✅ depends on @klarlabs-studio/fortify-core
+├── bulkhead/       # ✅ depends on @klarlabs-studio/fortify-core
+├── fallback/       # ✅ depends on @klarlabs-studio/fortify-core
 ├── middleware/     # ✅ peer deps on all patterns (optional)
 ├── http/           # ✅ HTTP integration layer
 ├── logging/        # ✅ logging utilities
@@ -318,7 +318,7 @@ const functionSchema = z.function();
 ```
 
 **Strengths:**
-- Centralized schemas in `@fortify-ts/core` ensure consistency
+- Centralized schemas in `@klarlabs-studio/fortify-core` ensure consistency
 - Type inference eliminates manual type maintenance
 - Default values reduce boilerplate
 - Runtime validation catches configuration errors early
@@ -342,10 +342,10 @@ const functionSchema = z.function();
 ✅ **Perfect isolation** - core has minimal dependencies
 
 **Pattern Packages (Resilience Primitives):**
-Each pattern depends only on `@fortify-ts/core` and `zod`:
+Each pattern depends only on `@klarlabs-studio/fortify-core` and `zod`:
 ```json
 "dependencies": {
-  "@fortify-ts/core": "workspace:*",
+  "@klarlabs-studio/fortify-core": "workspace:*",
   "zod": "^4.1.13"
 }
 ```
@@ -356,15 +356,15 @@ Each pattern depends only on `@fortify-ts/core` and `zod`:
 **Middleware Package (Composition Layer):**
 ```json
 "dependencies": {
-  "@fortify-ts/core": "workspace:*"
+  "@klarlabs-studio/fortify-core": "workspace:*"
 },
 "peerDependencies": {
-  "@fortify-ts/timeout": "^0.1.5",
-  "@fortify-ts/retry": "^0.1.5",
-  "@fortify-ts/circuit-breaker": "^0.1.5",
-  "@fortify-ts/rate-limit": "^0.2.0",
-  "@fortify-ts/bulkhead": "^0.1.5",
-  "@fortify-ts/fallback": "^0.1.5"
+  "@klarlabs-studio/fortify-timeout": "^0.1.5",
+  "@klarlabs-studio/fortify-retry": "^0.1.5",
+  "@klarlabs-studio/fortify-circuit-breaker": "^0.1.5",
+  "@klarlabs-studio/fortify-rate-limit": "^0.2.0",
+  "@klarlabs-studio/fortify-bulkhead": "^0.1.5",
+  "@klarlabs-studio/fortify-fallback": "^0.1.5"
 },
 "peerDependenciesMeta": {
   // ALL marked as optional ✅

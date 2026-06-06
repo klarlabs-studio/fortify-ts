@@ -47,7 +47,7 @@ importers:
 
   packages/bulkhead:
     dependencies:
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
       zod:
@@ -66,7 +66,7 @@ importers:
 
   packages/circuit-breaker:
     dependencies:
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
       zod:
@@ -101,7 +101,7 @@ importers:
 
   packages/fallback:
     dependencies:
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -120,28 +120,28 @@ importers:
 
   packages/http:
     dependencies:
-      '@fortify-ts/bulkhead':
+      '@klarlabs-studio/fortify-bulkhead':
         specifier: workspace:*
         version: link:../bulkhead
-      '@fortify-ts/circuit-breaker':
+      '@klarlabs-studio/fortify-circuit-breaker':
         specifier: workspace:*
         version: link:../circuit-breaker
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
-      '@fortify-ts/fallback':
+      '@klarlabs-studio/fortify-fallback':
         specifier: workspace:*
         version: link:../fallback
-      '@fortify-ts/middleware':
+      '@klarlabs-studio/fortify-middleware':
         specifier: workspace:*
         version: link:../middleware
-      '@fortify-ts/rate-limit':
+      '@klarlabs-studio/fortify-rate-limit':
         specifier: workspace:*
         version: link:../rate-limit
-      '@fortify-ts/retry':
+      '@klarlabs-studio/fortify-retry':
         specifier: workspace:*
         version: link:../retry
-      '@fortify-ts/timeout':
+      '@klarlabs-studio/fortify-timeout':
         specifier: workspace:*
         version: link:../timeout
     devDependencies:
@@ -157,7 +157,7 @@ importers:
 
   packages/logging:
     dependencies:
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
       zod:
@@ -182,7 +182,7 @@ importers:
 
   packages/metrics:
     dependencies:
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -201,26 +201,26 @@ importers:
 
   packages/middleware:
     dependencies:
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
-      '@fortify-ts/bulkhead':
+      '@klarlabs-studio/fortify-bulkhead':
         specifier: workspace:*
         version: link:../bulkhead
-      '@fortify-ts/circuit-breaker':
+      '@klarlabs-studio/fortify-circuit-breaker':
         specifier: workspace:*
         version: link:../circuit-breaker
-      '@fortify-ts/fallback':
+      '@klarlabs-studio/fortify-fallback':
         specifier: workspace:*
         version: link:../fallback
-      '@fortify-ts/rate-limit':
+      '@klarlabs-studio/fortify-rate-limit':
         specifier: workspace:*
         version: link:../rate-limit
-      '@fortify-ts/retry':
+      '@klarlabs-studio/fortify-retry':
         specifier: workspace:*
         version: link:../retry
-      '@fortify-ts/timeout':
+      '@klarlabs-studio/fortify-timeout':
         specifier: workspace:*
         version: link:../timeout
       tsup:
@@ -235,7 +235,7 @@ importers:
 
   packages/rate-limit:
     dependencies:
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
       zod:
@@ -254,7 +254,7 @@ importers:
 
   packages/retry:
     dependencies:
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
       zod:
@@ -276,29 +276,29 @@ importers:
 
   packages/testing:
     dependencies:
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
-      '@fortify-ts/bulkhead':
+      '@klarlabs-studio/fortify-bulkhead':
         specifier: workspace:*
         version: link:../bulkhead
-      '@fortify-ts/circuit-breaker':
+      '@klarlabs-studio/fortify-circuit-breaker':
         specifier: workspace:*
         version: link:../circuit-breaker
-      '@fortify-ts/fallback':
+      '@klarlabs-studio/fortify-fallback':
         specifier: workspace:*
         version: link:../fallback
-      '@fortify-ts/middleware':
+      '@klarlabs-studio/fortify-middleware':
         specifier: workspace:*
         version: link:../middleware
-      '@fortify-ts/rate-limit':
+      '@klarlabs-studio/fortify-rate-limit':
         specifier: workspace:*
         version: link:../rate-limit
-      '@fortify-ts/retry':
+      '@klarlabs-studio/fortify-retry':
         specifier: workspace:*
         version: link:../retry
-      '@fortify-ts/timeout':
+      '@klarlabs-studio/fortify-timeout':
         specifier: workspace:*
         version: link:../timeout
       tsup:
@@ -313,7 +313,7 @@ importers:
 
   packages/timeout:
     dependencies:
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
       zod:
@@ -335,7 +335,7 @@ importers:
 
   packages/tracing:
     dependencies:
-      '@fortify-ts/core':
+      '@klarlabs-studio/fortify-core':
         specifier: workspace:*
         version: link:../core
     devDependencies:

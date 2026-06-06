@@ -16,7 +16,7 @@ Each resilience pattern accepts a configuration object with various options. We 
 
 ## Decision
 
-We chose **Zod** for runtime configuration validation with schemas defined in `@fortify-ts/core`.
+We chose **Zod** for runtime configuration validation with schemas defined in `@klarlabs-studio/fortify-core`.
 
 ### Schema Structure
 
@@ -85,7 +85,7 @@ export type RetryConfig = z.output<typeof retryConfigSchema>;
 ### Neutral
 
 - Zod is a peer dependency, allowing version flexibility
-- Schemas are centralized in `@fortify-ts/core` for consistency
+- Schemas are centralized in `@klarlabs-studio/fortify-core` for consistency
 
 ## Alternatives Considered
 
@@ -158,7 +158,7 @@ interface RetryConfig {
 ### Basic Validation
 
 ```typescript
-import { retryConfigSchema } from '@fortify-ts/core';
+import { retryConfigSchema } from '@klarlabs-studio/fortify-core';
 
 // Valid configuration
 const config = retryConfigSchema.parse({

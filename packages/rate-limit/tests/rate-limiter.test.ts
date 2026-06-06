@@ -10,7 +10,7 @@ import {
   sanitizeStorageKey,
   validateBucketState,
   bucketStateSchema,
-} from '@fortify-ts/core';
+} from '@klarlabs-studio/fortify-core';
 
 describe('TokenBucket', () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { type FortifyLogger } from '@fortify-ts/core';
+import { type FortifyLogger } from '@klarlabs-studio/fortify-core';
 
 /** Maximum allowed timeout in milliseconds (1 hour) */
 const MAX_TIMEOUT_MS = 3_600_000;

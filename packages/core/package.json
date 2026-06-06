@@ -1,7 +1,7 @@
 {
-  "name": "@fortify-ts/core",
+  "name": "@klarlabs-studio/fortify-core",
   "version": "0.3.1",
-  "description": "Core types, errors, and utilities for Fortify TS resilience library",
+  "description": "Core types, errors, and utilities for Fortify resilience library",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

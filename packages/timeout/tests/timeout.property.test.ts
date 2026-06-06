@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import fc from 'fast-check';
 import { Timeout } from '../src/timeout.js';
-import { TimeoutError } from '@fortify-ts/core';
+import { TimeoutError } from '@klarlabs-studio/fortify-core';
 
 describe('Timeout Property-Based Tests', () => {
   beforeEach(() => {

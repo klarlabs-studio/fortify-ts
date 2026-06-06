@@ -1,13 +1,13 @@
-# @fortify-ts/logging
+# @klarlabs-studio/fortify-logging
 
 Structured logging utilities for the Fortify-TS resilience library.
 
 ## Installation
 
 ```bash
-npm install @fortify-ts/logging
+npm install @klarlabs-studio/fortify-logging
 # or
-pnpm add @fortify-ts/logging
+pnpm add @klarlabs-studio/fortify-logging
 ```
 
 ## Features
@@ -23,7 +23,7 @@ pnpm add @fortify-ts/logging
 ### Console Logger
 
 ```typescript
-import { createConsoleLogger } from '@fortify-ts/logging';
+import { createConsoleLogger } from '@klarlabs-studio/fortify-logging';
 
 const logger = createConsoleLogger({
   level: 'info',      // Minimum log level
@@ -40,7 +40,7 @@ logger.info('User logged in', { userId: '123' });
 
 ```typescript
 import pino from 'pino';
-import { createPinoLogger } from '@fortify-ts/logging';
+import { createPinoLogger } from '@klarlabs-studio/fortify-logging';
 
 const logger = createPinoLogger(pino());
 
@@ -50,7 +50,7 @@ logger.info('Hello', { key: 'value' });
 ### Resilience Logger
 
 ```typescript
-import { createConsoleLogger, createResilienceLogger } from '@fortify-ts/logging';
+import { createConsoleLogger, createResilienceLogger } from '@klarlabs-studio/fortify-logging';
 
 const baseLogger = createConsoleLogger({ level: 'info' });
 const logger = createResilienceLogger(baseLogger);
@@ -69,7 +69,7 @@ logger.fallbackActivated('get-user', new Error('Primary failed'));
 Automatically redact sensitive data from logs:
 
 ```typescript
-import { createConsoleLogger, withDefaultRedaction } from '@fortify-ts/logging';
+import { createConsoleLogger, withDefaultRedaction } from '@klarlabs-studio/fortify-logging';
 
 const baseLogger = createConsoleLogger({ level: 'info' });
 const logger = withDefaultRedaction(baseLogger);
@@ -90,7 +90,7 @@ import {
   createConsoleLogger,
   withRedaction,
   createRedactor,
-} from '@fortify-ts/logging';
+} from '@klarlabs-studio/fortify-logging';
 
 // Create custom redactor
 const redactor = createRedactor({
@@ -113,7 +113,7 @@ logger.info('Request', {
 #### Extending Default Redaction
 
 ```typescript
-import { createConsoleLogger, withDefaultRedaction } from '@fortify-ts/logging';
+import { createConsoleLogger, withDefaultRedaction } from '@klarlabs-studio/fortify-logging';
 
 const baseLogger = createConsoleLogger({ level: 'info' });
 
@@ -128,7 +128,7 @@ const logger = withDefaultRedaction(
 #### Manual Context Redaction
 
 ```typescript
-import { redactContext, createDefaultRedactor } from '@fortify-ts/logging';
+import { redactContext, createDefaultRedactor } from '@klarlabs-studio/fortify-logging';
 
 // One-time redaction
 const sanitized = redactContext(
@@ -156,7 +156,7 @@ requestLogger.info('Processing request');
 ### Noop Logger
 
 ```typescript
-import { noopLogger } from '@fortify-ts/logging';
+import { noopLogger } from '@klarlabs-studio/fortify-logging';
 
 // Disable logging (useful for tests)
 const circuitBreaker = new CircuitBreaker({

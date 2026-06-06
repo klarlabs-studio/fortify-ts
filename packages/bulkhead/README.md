@@ -1,13 +1,13 @@
-# @fortify-ts/bulkhead
+# @klarlabs-studio/fortify-bulkhead
 
 Bulkhead (concurrency limiter) pattern for the Fortify-TS resilience library.
 
 ## Installation
 
 ```bash
-npm install @fortify-ts/bulkhead
+npm install @klarlabs-studio/fortify-bulkhead
 # or
-pnpm add @fortify-ts/bulkhead
+pnpm add @klarlabs-studio/fortify-bulkhead
 ```
 
 ## Features
@@ -22,7 +22,7 @@ pnpm add @fortify-ts/bulkhead
 ### Basic Usage
 
 ```typescript
-import { Bulkhead } from '@fortify-ts/bulkhead';
+import { Bulkhead } from '@klarlabs-studio/fortify-bulkhead';
 
 const bulkhead = new Bulkhead<Response>({
   maxConcurrent: 10,

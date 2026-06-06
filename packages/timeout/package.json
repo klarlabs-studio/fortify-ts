@@ -1,7 +1,7 @@
 {
-  "name": "@fortify-ts/timeout",
+  "name": "@klarlabs-studio/fortify-timeout",
   "version": "0.2.1",
-  "description": "Timeout pattern for Fortify TS resilience library",
+  "description": "Timeout pattern for Fortify resilience library",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -32,7 +32,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fortify-ts/core": "workspace:*",
+    "@klarlabs-studio/fortify-core": "workspace:*",
     "zod": "^4.3.6"
   },
   "devDependencies": {

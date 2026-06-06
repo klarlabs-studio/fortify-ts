@@ -1,7 +1,7 @@
 {
-  "name": "@fortify-ts/http",
+  "name": "@klarlabs-studio/fortify-http",
   "version": "0.1.7",
-  "description": "Framework-agnostic HTTP utilities for fortify-ts resilience patterns",
+  "description": "Framework-agnostic HTTP utilities for Fortify resilience patterns",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -29,14 +29,14 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fortify-ts/bulkhead": "workspace:*",
-    "@fortify-ts/circuit-breaker": "workspace:*",
-    "@fortify-ts/core": "workspace:*",
-    "@fortify-ts/fallback": "workspace:*",
-    "@fortify-ts/middleware": "workspace:*",
-    "@fortify-ts/rate-limit": "workspace:*",
-    "@fortify-ts/retry": "workspace:*",
-    "@fortify-ts/timeout": "workspace:*"
+    "@klarlabs-studio/fortify-bulkhead": "workspace:*",
+    "@klarlabs-studio/fortify-circuit-breaker": "workspace:*",
+    "@klarlabs-studio/fortify-core": "workspace:*",
+    "@klarlabs-studio/fortify-fallback": "workspace:*",
+    "@klarlabs-studio/fortify-middleware": "workspace:*",
+    "@klarlabs-studio/fortify-rate-limit": "workspace:*",
+    "@klarlabs-studio/fortify-retry": "workspace:*",
+    "@klarlabs-studio/fortify-timeout": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.5.1",

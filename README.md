@@ -21,16 +21,16 @@ Production-grade resilience and fault-tolerance library for TypeScript.
 
 ```bash
 # Install individual packages
-pnpm add @fortify-ts/circuit-breaker
-pnpm add @fortify-ts/retry
-pnpm add @fortify-ts/rate-limit
-pnpm add @fortify-ts/timeout
-pnpm add @fortify-ts/bulkhead
-pnpm add @fortify-ts/fallback
-pnpm add @fortify-ts/middleware
+pnpm add @klarlabs-studio/fortify-circuit-breaker
+pnpm add @klarlabs-studio/fortify-retry
+pnpm add @klarlabs-studio/fortify-rate-limit
+pnpm add @klarlabs-studio/fortify-timeout
+pnpm add @klarlabs-studio/fortify-bulkhead
+pnpm add @klarlabs-studio/fortify-fallback
+pnpm add @klarlabs-studio/fortify-middleware
 
 # Or install all core patterns
-pnpm add @fortify-ts/core @fortify-ts/circuit-breaker @fortify-ts/retry @fortify-ts/rate-limit @fortify-ts/timeout @fortify-ts/bulkhead @fortify-ts/fallback @fortify-ts/middleware
+pnpm add @klarlabs-studio/fortify-core @klarlabs-studio/fortify-circuit-breaker @klarlabs-studio/fortify-retry @klarlabs-studio/fortify-rate-limit @klarlabs-studio/fortify-timeout @klarlabs-studio/fortify-bulkhead @klarlabs-studio/fortify-fallback @klarlabs-studio/fortify-middleware
 ```
 
 ## Quick Start
@@ -38,7 +38,7 @@ pnpm add @fortify-ts/core @fortify-ts/circuit-breaker @fortify-ts/retry @fortify
 ### Circuit Breaker
 
 ```typescript
-import { CircuitBreaker } from '@fortify-ts/circuit-breaker';
+import { CircuitBreaker } from '@klarlabs-studio/fortify-circuit-breaker';
 
 const breaker = new CircuitBreaker({
   maxFailures: 5,
@@ -54,7 +54,7 @@ const result = await breaker.execute(async (signal) => {
 ### Retry with Backoff
 
 ```typescript
-import { Retry } from '@fortify-ts/retry';
+import { Retry } from '@klarlabs-studio/fortify-retry';
 
 const retry = new Retry({
   maxAttempts: 3,
@@ -73,7 +73,7 @@ const result = await retry.execute(async (signal) => {
 ### Rate Limiter
 
 ```typescript
-import { RateLimiter } from '@fortify-ts/rate-limit';
+import { RateLimiter } from '@klarlabs-studio/fortify-rate-limit';
 
 const limiter = new RateLimiter({
   rate: 100, // 100 requests
@@ -92,10 +92,10 @@ await limiter.wait('user-123');
 ### Composing Patterns
 
 ```typescript
-import { Chain } from '@fortify-ts/middleware';
-import { CircuitBreaker } from '@fortify-ts/circuit-breaker';
-import { Retry } from '@fortify-ts/retry';
-import { Timeout } from '@fortify-ts/timeout';
+import { Chain } from '@klarlabs-studio/fortify-middleware';
+import { CircuitBreaker } from '@klarlabs-studio/fortify-circuit-breaker';
+import { Retry } from '@klarlabs-studio/fortify-retry';
+import { Timeout } from '@klarlabs-studio/fortify-timeout';
 
 const chain = new Chain()
   .withTimeout(new Timeout({ defaultTimeout: 5000 }), 5000)
@@ -111,19 +111,19 @@ const result = await chain.execute(async (signal) => {
 
 | Package | Description | Browser |
 |---------|-------------|---------|
-| `@fortify-ts/core` | Shared types, errors, utilities | ✅ |
-| `@fortify-ts/circuit-breaker` | Circuit breaker pattern | ✅ |
-| `@fortify-ts/retry` | Retry with backoff strategies | ✅ |
-| `@fortify-ts/rate-limit` | Token bucket rate limiter | ✅ |
-| `@fortify-ts/timeout` | Timeout wrapper | ✅ |
-| `@fortify-ts/bulkhead` | Concurrency limiter with queue | ✅ |
-| `@fortify-ts/fallback` | Fallback pattern | ✅ |
-| `@fortify-ts/middleware` | Pattern composition chain | ✅ |
-| `@fortify-ts/http` | Framework-agnostic HTTP utilities | ✅ |
-| `@fortify-ts/logging` | Structured logging adapters | ✅* |
-| `@fortify-ts/metrics` | Prometheus metrics | ❌ |
-| `@fortify-ts/tracing` | OpenTelemetry tracing | ✅* |
-| `@fortify-ts/testing` | Chaos engineering utilities | ✅ |
+| `@klarlabs-studio/fortify-core` | Shared types, errors, utilities | ✅ |
+| `@klarlabs-studio/fortify-circuit-breaker` | Circuit breaker pattern | ✅ |
+| `@klarlabs-studio/fortify-retry` | Retry with backoff strategies | ✅ |
+| `@klarlabs-studio/fortify-rate-limit` | Token bucket rate limiter | ✅ |
+| `@klarlabs-studio/fortify-timeout` | Timeout wrapper | ✅ |
+| `@klarlabs-studio/fortify-bulkhead` | Concurrency limiter with queue | ✅ |
+| `@klarlabs-studio/fortify-fallback` | Fallback pattern | ✅ |
+| `@klarlabs-studio/fortify-middleware` | Pattern composition chain | ✅ |
+| `@klarlabs-studio/fortify-http` | Framework-agnostic HTTP utilities | ✅ |
+| `@klarlabs-studio/fortify-logging` | Structured logging adapters | ✅* |
+| `@klarlabs-studio/fortify-metrics` | Prometheus metrics | ❌ |
+| `@klarlabs-studio/fortify-tracing` | OpenTelemetry tracing | ✅* |
+| `@klarlabs-studio/fortify-testing` | Chaos engineering utilities | ✅ |
 
 \* Console adapter for browser, full features in Node.js
 
@@ -132,7 +132,7 @@ const result = await chain.execute(async (signal) => {
 ### Logging
 
 ```typescript
-import { createPinoLogger } from '@fortify-ts/logging';
+import { createPinoLogger } from '@klarlabs-studio/fortify-logging';
 import pino from 'pino';
 
 const logger = createPinoLogger(pino());
@@ -142,7 +142,7 @@ const breaker = new CircuitBreaker({ logger });
 ### Metrics
 
 ```typescript
-import { createMetricsCollector, withMetrics } from '@fortify-ts/metrics';
+import { createMetricsCollector, withMetrics } from '@klarlabs-studio/fortify-metrics';
 
 const collector = createMetricsCollector();
 const breaker = withMetrics(new CircuitBreaker(), collector, { name: 'api' });
@@ -151,7 +151,7 @@ const breaker = withMetrics(new CircuitBreaker(), collector, { name: 'api' });
 ### Tracing
 
 ```typescript
-import { withTracing } from '@fortify-ts/tracing';
+import { withTracing } from '@klarlabs-studio/fortify-tracing';
 import { trace } from '@opentelemetry/api';
 
 const tracer = trace.getTracer('my-service');
@@ -161,7 +161,7 @@ const breaker = withTracing(new CircuitBreaker(), { tracer });
 ## Testing
 
 ```typescript
-import { createFlakeyService, createErrorInjector } from '@fortify-ts/testing';
+import { createFlakeyService, createErrorInjector } from '@klarlabs-studio/fortify-testing';
 
 const flakey = createFlakeyService({
   errorRate: 0.3,

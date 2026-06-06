@@ -1,8 +1,8 @@
-import { addJitter } from '@fortify-ts/core';
+import { addJitter } from '@klarlabs-studio/fortify-core';
 import { type BackoffPolicy } from './config.js';
 
 // Re-export addJitter from core for backwards compatibility
-export { addJitter } from '@fortify-ts/core';
+export { addJitter } from '@klarlabs-studio/fortify-core';
 
 /**
  * Absolute maximum delay to prevent integer overflow.

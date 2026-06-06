@@ -73,7 +73,7 @@ All `FortifyError` instances include:
 
 ### Neutral
 
-- Error classes are exported from `@fortify-ts/core` for consistent access
+- Error classes are exported from `@klarlabs-studio/fortify-core` for consistent access
 - Symbol-based retryable marking doesn't affect error serialization
 
 ## Alternatives Considered

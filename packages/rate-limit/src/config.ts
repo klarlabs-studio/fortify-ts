@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { type FortifyLogger, type RateLimitStorage } from '@fortify-ts/core';
+import { type FortifyLogger, type RateLimitStorage } from '@klarlabs-studio/fortify-core';
 import { type RateLimiterMetrics } from './metrics.js';
 
 /**

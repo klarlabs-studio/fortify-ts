@@ -25,7 +25,7 @@ export interface PinoLike {
  * @example
  * ```typescript
  * import pino from 'pino';
- * import { createPinoLogger } from '@fortify-ts/logging';
+ * import { createPinoLogger } from '@klarlabs-studio/fortify-logging';
  *
  * const logger = createPinoLogger(pino());
  * logger.info('Hello', { key: 'value' });

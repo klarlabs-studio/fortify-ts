@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { Bulkhead } from '../src/bulkhead.js';
 import { Semaphore } from '../src/semaphore.js';
-import { BulkheadFullError, BulkheadClosedError } from '@fortify-ts/core';
+import { BulkheadFullError, BulkheadClosedError } from '@klarlabs-studio/fortify-core';
 
 describe('Semaphore', () => {
   describe('tryAcquire', () => {

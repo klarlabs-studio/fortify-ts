@@ -1,11 +1,11 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { Chain } from '../src/chain.js';
-import { CircuitBreaker } from '@fortify-ts/circuit-breaker';
-import { Retry } from '@fortify-ts/retry';
-import { RateLimiter } from '@fortify-ts/rate-limit';
-import { Timeout } from '@fortify-ts/timeout';
-import { Bulkhead } from '@fortify-ts/bulkhead';
-import { Fallback } from '@fortify-ts/fallback';
+import { CircuitBreaker } from '@klarlabs-studio/fortify-circuit-breaker';
+import { Retry } from '@klarlabs-studio/fortify-retry';
+import { RateLimiter } from '@klarlabs-studio/fortify-rate-limit';
+import { Timeout } from '@klarlabs-studio/fortify-timeout';
+import { Bulkhead } from '@klarlabs-studio/fortify-bulkhead';
+import { Fallback } from '@klarlabs-studio/fortify-fallback';
 
 describe('Chain', () => {
   beforeEach(() => {

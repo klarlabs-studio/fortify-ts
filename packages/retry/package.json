@@ -1,7 +1,7 @@
 {
-  "name": "@fortify-ts/retry",
+  "name": "@klarlabs-studio/fortify-retry",
   "version": "0.2.1",
-  "description": "Retry pattern with backoff strategies for Fortify TS resilience library",
+  "description": "Retry pattern with backoff strategies for Fortify resilience library",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -32,7 +32,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fortify-ts/core": "workspace:*",
+    "@klarlabs-studio/fortify-core": "workspace:*",
     "zod": "^4.3.6"
   },
   "devDependencies": {

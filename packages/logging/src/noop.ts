@@ -7,7 +7,7 @@ import { type FortifyLogger, type LogContext } from './logger.js';
  *
  * @example
  * ```typescript
- * import { noopLogger } from '@fortify-ts/logging';
+ * import { noopLogger } from '@klarlabs-studio/fortify-logging';
  *
  * // In tests or when logging is disabled
  * const circuitBreaker = new CircuitBreaker({

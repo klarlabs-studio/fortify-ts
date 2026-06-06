@@ -1,10 +1,10 @@
-import { type Operation, type Pattern, NEVER_ABORTED_SIGNAL } from '@fortify-ts/core';
-import { type Timeout } from '@fortify-ts/timeout';
-import { type Retry } from '@fortify-ts/retry';
-import { type CircuitBreaker } from '@fortify-ts/circuit-breaker';
-import { type RateLimiter } from '@fortify-ts/rate-limit';
-import { type Bulkhead } from '@fortify-ts/bulkhead';
-import { type Fallback } from '@fortify-ts/fallback';
+import { type Operation, type Pattern, NEVER_ABORTED_SIGNAL } from '@klarlabs-studio/fortify-core';
+import { type Timeout } from '@klarlabs-studio/fortify-timeout';
+import { type Retry } from '@klarlabs-studio/fortify-retry';
+import { type CircuitBreaker } from '@klarlabs-studio/fortify-circuit-breaker';
+import { type RateLimiter } from '@klarlabs-studio/fortify-rate-limit';
+import { type Bulkhead } from '@klarlabs-studio/fortify-bulkhead';
+import { type Fallback } from '@klarlabs-studio/fortify-fallback';
 
 /**
  * Middleware function type that wraps an operation with resilience behavior.

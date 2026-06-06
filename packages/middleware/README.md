@@ -1,13 +1,13 @@
-# @fortify-ts/middleware
+# @klarlabs-studio/fortify-middleware
 
 Middleware chain for composing resilience patterns in Fortify-TS.
 
 ## Installation
 
 ```bash
-npm install @fortify-ts/middleware
+npm install @klarlabs-studio/fortify-middleware
 # or
-pnpm add @fortify-ts/middleware
+pnpm add @klarlabs-studio/fortify-middleware
 ```
 
 ## Features
@@ -22,10 +22,10 @@ pnpm add @fortify-ts/middleware
 ### Basic Usage
 
 ```typescript
-import { Chain } from '@fortify-ts/middleware';
-import { CircuitBreaker } from '@fortify-ts/circuit-breaker';
-import { Retry } from '@fortify-ts/retry';
-import { Timeout } from '@fortify-ts/timeout';
+import { Chain } from '@klarlabs-studio/fortify-middleware';
+import { CircuitBreaker } from '@klarlabs-studio/fortify-circuit-breaker';
+import { Retry } from '@klarlabs-studio/fortify-retry';
+import { Timeout } from '@klarlabs-studio/fortify-timeout';
 
 const circuitBreaker = new CircuitBreaker({ maxFailures: 5 });
 const retry = new Retry({ maxAttempts: 3 });
@@ -44,13 +44,13 @@ const result = await chain.execute(async (signal) => {
 ### Full Pattern Stack
 
 ```typescript
-import { Chain } from '@fortify-ts/middleware';
-import { Bulkhead } from '@fortify-ts/bulkhead';
-import { RateLimiter } from '@fortify-ts/rate-limit';
-import { Timeout } from '@fortify-ts/timeout';
-import { CircuitBreaker } from '@fortify-ts/circuit-breaker';
-import { Retry } from '@fortify-ts/retry';
-import { Fallback } from '@fortify-ts/fallback';
+import { Chain } from '@klarlabs-studio/fortify-middleware';
+import { Bulkhead } from '@klarlabs-studio/fortify-bulkhead';
+import { RateLimiter } from '@klarlabs-studio/fortify-rate-limit';
+import { Timeout } from '@klarlabs-studio/fortify-timeout';
+import { CircuitBreaker } from '@klarlabs-studio/fortify-circuit-breaker';
+import { Retry } from '@klarlabs-studio/fortify-retry';
+import { Fallback } from '@klarlabs-studio/fortify-fallback';
 
 const chain = new Chain<Response>()
   .withBulkhead(bulkhead)           // 1st: Limit concurrency
@@ -66,7 +66,7 @@ const result = await chain.execute(operation);
 ### Custom Middleware
 
 ```typescript
-import { Chain, type Middleware } from '@fortify-ts/middleware';
+import { Chain, type Middleware } from '@klarlabs-studio/fortify-middleware';
 
 // Custom logging middleware
 const loggingMiddleware: Middleware<Response> = (next) => async (signal) => {

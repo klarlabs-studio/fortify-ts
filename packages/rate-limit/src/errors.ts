@@ -1,4 +1,4 @@
-import { FortifyError } from '@fortify-ts/core';
+import { FortifyError } from '@klarlabs-studio/fortify-core';
 
 /**
  * Base error class for rate limiter errors.

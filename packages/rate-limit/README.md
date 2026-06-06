@@ -1,13 +1,13 @@
-# @fortify-ts/rate-limit
+# @klarlabs-studio/fortify-rate-limit
 
 Token bucket rate limiter for the Fortify-TS resilience library.
 
 ## Installation
 
 ```bash
-npm install @fortify-ts/rate-limit
+npm install @klarlabs-studio/fortify-rate-limit
 # or
-pnpm add @fortify-ts/rate-limit
+pnpm add @klarlabs-studio/fortify-rate-limit
 ```
 
 ## Features
@@ -23,7 +23,7 @@ pnpm add @fortify-ts/rate-limit
 ### Basic Usage
 
 ```typescript
-import { RateLimiter } from '@fortify-ts/rate-limit';
+import { RateLimiter } from '@klarlabs-studio/fortify-rate-limit';
 
 const limiter = new RateLimiter({
   rate: 100,      // 100 requests
@@ -69,7 +69,7 @@ const result = await limiter.execute(
 ### External Storage (Redis)
 
 ```typescript
-import { RateLimiter, type RateLimitStorage } from '@fortify-ts/rate-limit';
+import { RateLimiter, type RateLimitStorage } from '@klarlabs-studio/fortify-rate-limit';
 import Redis from 'ioredis';
 
 const redis = new Redis();

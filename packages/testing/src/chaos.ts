@@ -1,4 +1,4 @@
-import { type Operation, sleep } from '@fortify-ts/core';
+import { type Operation, sleep } from '@klarlabs-studio/fortify-core';
 
 /**
  * Configuration for error injection.

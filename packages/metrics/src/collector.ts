@@ -107,7 +107,7 @@ export const DEFAULT_ATTEMPT_BUCKETS = [1, 2, 3, 4, 5, 10];
  * @example
  * ```typescript
  * import * as promClient from 'prom-client';
- * import { createMetricsCollector } from '@fortify-ts/metrics';
+ * import { createMetricsCollector } from '@klarlabs-studio/fortify-metrics';
  *
  * const metrics = createMetricsCollector(promClient, {
  *   prefix: 'myapp_',

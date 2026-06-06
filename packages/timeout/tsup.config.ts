@@ -10,5 +10,5 @@ export default defineConfig({
   platform: 'neutral',
   splitting: false,
   treeshake: true,
-  external: ['@fortify-ts/core'],
+  external: ['@klarlabs-studio/fortify-core'],
 });

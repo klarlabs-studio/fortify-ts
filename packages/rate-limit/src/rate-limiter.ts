@@ -10,7 +10,7 @@ import {
   sleep,
   sanitizeStorageKey,
   validateBucketState,
-} from '@fortify-ts/core';
+} from '@klarlabs-studio/fortify-core';
 import {
   type RateLimitConfig,
   type RateLimitConfigInputFull,

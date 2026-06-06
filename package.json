@@ -1,5 +1,5 @@
 {
-  "name": "fortify-ts",
+  "name": "@klarlabs-studio/fortify",
   "version": "0.0.0",
   "private": true,
   "description": "Production-grade resilience and fault-tolerance library for TypeScript",

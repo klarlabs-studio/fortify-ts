@@ -1,4 +1,4 @@
-import { type FortifyLogger as CoreFortifyLogger } from '@fortify-ts/core';
+import { type FortifyLogger as CoreFortifyLogger } from '@klarlabs-studio/fortify-core';
 
 /**
  * Log level enumeration.
@@ -13,12 +13,12 @@ export type LogContext = Record<string, unknown>;
 /**
  * Re-export the base FortifyLogger from core for convenience.
  */
-export type { FortifyLogger as BaseFortifyLogger } from '@fortify-ts/core';
+export type { FortifyLogger as BaseFortifyLogger } from '@klarlabs-studio/fortify-core';
 
 /**
  * Extended Fortify logger interface with child logger support.
  *
- * Extends the base FortifyLogger from @fortify-ts/core with
+ * Extends the base FortifyLogger from @klarlabs-studio/fortify-core with
  * additional capabilities for creating child loggers with bound context.
  *
  * This is compatible with pino, winston, and other logging libraries

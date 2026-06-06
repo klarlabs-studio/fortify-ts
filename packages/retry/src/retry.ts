@@ -7,7 +7,7 @@ import {
   type FortifyLogger,
   noopLogger,
   NEVER_ABORTED_SIGNAL,
-} from '@fortify-ts/core';
+} from '@klarlabs-studio/fortify-core';
 import { type RetryConfig, type RetryConfigInputFull, parseRetryConfig } from './config.js';
 import { getRetryDelay } from './backoff.js';
 

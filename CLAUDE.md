@@ -53,7 +53,7 @@ pnpm clean
 ### Package Hierarchy
 
 ```
-@fortify-ts/core          <- Foundation: errors, types, utilities, Zod schemas
+@klarlabs-studio/fortify-core          <- Foundation: errors, types, utilities, Zod schemas
     ↑
 ┌───┴────┬──────────┬──────────┬──────────┬──────────┐
 circuit-  retry     timeout   rate-limit  bulkhead  fallback  <- Resilience patterns
@@ -61,10 +61,10 @@ breaker
     ↑       ↑          ↑          ↑          ↑          ↑
     └───────┴──────────┴──────────┴──────────┴──────────┘
                               ↓
-                        @fortify-ts/middleware  <- Chain composition
+                        @klarlabs-studio/fortify-middleware  <- Chain composition
                               ↓
               ┌───────────────┼───────────────┐
-          @fortify-ts/     @fortify-ts/    @fortify-ts/
+          @klarlabs-studio/fortify-     @klarlabs-studio/fortify-    @klarlabs-studio/fortify-
           http             testing         metrics/logging/tracing
 ```
 
@@ -118,4 +118,4 @@ Strict mode with additional checks:
 
 - Tests run with `globals: true` (no need to import describe/it/expect)
 - Property-based tests use fast-check
-- Browser compatibility tests in `@fortify-ts/testing`
+- Browser compatibility tests in `@klarlabs-studio/fortify-testing`

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { Timeout } from '../src/timeout.js';
-import { TimeoutError, type Pattern } from '@fortify-ts/core';
+import { TimeoutError, type Pattern } from '@klarlabs-studio/fortify-core';
 
 describe('Timeout', () => {
   describe('Pattern<T> compliance', () => {

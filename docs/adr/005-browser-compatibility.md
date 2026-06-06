@@ -138,7 +138,7 @@ export function combineSignals(...signals: (AbortSignal | undefined)[]): AbortSi
 
 ```html
 <script type="module">
-  import { Retry } from 'https://esm.sh/@fortify-ts/retry';
+  import { Retry } from 'https://esm.sh/@klarlabs-studio/fortify-retry';
 
   const retry = new Retry({ maxAttempts: 3 });
   const result = await retry.execute(async (signal) => {
@@ -150,7 +150,7 @@ export function combineSignals(...signals: (AbortSignal | undefined)[]): AbortSi
 
 ### Testing Browser Compatibility
 
-The `@fortify-ts/testing` package includes browser compatibility tests:
+The `@klarlabs-studio/fortify-testing` package includes browser compatibility tests:
 
 ```typescript
 describe('browser compatibility', () => {

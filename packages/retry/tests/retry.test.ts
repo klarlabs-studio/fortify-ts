@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { Retry } from '../src/retry.js';
-import { MaxAttemptsReachedError, asRetryable, asNonRetryable } from '@fortify-ts/core';
+import { MaxAttemptsReachedError, asRetryable, asNonRetryable } from '@klarlabs-studio/fortify-core';
 
 describe('Retry', () => {
   describe('constructor', () => {

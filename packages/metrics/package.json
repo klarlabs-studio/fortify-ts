@@ -1,7 +1,7 @@
 {
-  "name": "@fortify-ts/metrics",
+  "name": "@klarlabs-studio/fortify-metrics",
   "version": "0.1.7",
-  "description": "Prometheus metrics for fortify-ts resilience patterns",
+  "description": "Prometheus metrics for Fortify resilience patterns",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -29,7 +29,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fortify-ts/core": "workspace:*"
+    "@klarlabs-studio/fortify-core": "workspace:*"
   },
   "peerDependencies": {
     "prom-client": "^14.0.0 || ^15.0.0"

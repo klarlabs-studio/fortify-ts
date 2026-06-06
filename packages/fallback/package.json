@@ -1,7 +1,7 @@
 {
-  "name": "@fortify-ts/fallback",
+  "name": "@klarlabs-studio/fortify-fallback",
   "version": "0.2.1",
-  "description": "Fallback pattern for graceful degradation in @fortify-ts",
+  "description": "Fallback pattern for graceful degradation in Fortify",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -32,7 +32,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fortify-ts/core": "workspace:*"
+    "@klarlabs-studio/fortify-core": "workspace:*"
   },
   "devDependencies": {
     "fast-check": "^4.6.0",

@@ -19,14 +19,14 @@ import {
   combineSignals,
   isAbortError,
   throwIfAborted,
-} from '@fortify-ts/core';
-import { CircuitBreaker } from '@fortify-ts/circuit-breaker';
-import { Retry } from '@fortify-ts/retry';
-import { RateLimiter } from '@fortify-ts/rate-limit';
-import { Timeout } from '@fortify-ts/timeout';
-import { Bulkhead } from '@fortify-ts/bulkhead';
-import { Fallback } from '@fortify-ts/fallback';
-import { Chain } from '@fortify-ts/middleware';
+} from '@klarlabs-studio/fortify-core';
+import { CircuitBreaker } from '@klarlabs-studio/fortify-circuit-breaker';
+import { Retry } from '@klarlabs-studio/fortify-retry';
+import { RateLimiter } from '@klarlabs-studio/fortify-rate-limit';
+import { Timeout } from '@klarlabs-studio/fortify-timeout';
+import { Bulkhead } from '@klarlabs-studio/fortify-bulkhead';
+import { Fallback } from '@klarlabs-studio/fortify-fallback';
+import { Chain } from '@klarlabs-studio/fortify-middleware';
 
 describe('Browser Compatibility', () => {
   describe('Web APIs used', () => {

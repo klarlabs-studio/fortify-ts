@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import fc from 'fast-check';
 import { Retry } from '../src/retry.js';
-import { MaxAttemptsReachedError, asNonRetryable } from '@fortify-ts/core';
+import { MaxAttemptsReachedError, asNonRetryable } from '@klarlabs-studio/fortify-core';
 
 describe('Retry Property-Based Tests', () => {
   describe('successful operations', () => {

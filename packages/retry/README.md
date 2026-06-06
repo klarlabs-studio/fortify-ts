@@ -1,13 +1,13 @@
-# @fortify-ts/retry
+# @klarlabs-studio/fortify-retry
 
 Retry pattern with configurable backoff strategies for the Fortify-TS resilience library.
 
 ## Installation
 
 ```bash
-npm install @fortify-ts/retry
+npm install @klarlabs-studio/fortify-retry
 # or
-pnpm add @fortify-ts/retry
+pnpm add @klarlabs-studio/fortify-retry
 ```
 
 ## Features
@@ -23,7 +23,7 @@ pnpm add @fortify-ts/retry
 ### Basic Usage
 
 ```typescript
-import { Retry } from '@fortify-ts/retry';
+import { Retry } from '@klarlabs-studio/fortify-retry';
 
 const retry = new Retry<Response>({
   maxAttempts: 3,
@@ -93,7 +93,7 @@ const constant = new Retry({ backoffPolicy: 'constant' });
 ### Marking Errors as Retryable
 
 ```typescript
-import { asRetryable, asNonRetryable } from '@fortify-ts/core';
+import { asRetryable, asNonRetryable } from '@klarlabs-studio/fortify-core';
 
 // In your code, mark errors explicitly
 if (isTemporary) {

@@ -15,7 +15,7 @@ Applications often need to combine multiple resilience patterns (e.g., circuit b
 
 ## Decision
 
-We implemented a **Middleware Chain pattern** with the `Chain` class in `@fortify-ts/middleware`.
+We implemented a **Middleware Chain pattern** with the `Chain` class in `@klarlabs-studio/fortify-middleware`.
 
 ### Chain API
 
@@ -126,9 +126,9 @@ const pipeline = new Pipeline()
 ### Basic Chain
 
 ```typescript
-import { Chain } from '@fortify-ts/middleware';
-import { CircuitBreaker } from '@fortify-ts/circuit-breaker';
-import { Retry } from '@fortify-ts/retry';
+import { Chain } from '@klarlabs-studio/fortify-middleware';
+import { CircuitBreaker } from '@klarlabs-studio/fortify-circuit-breaker';
+import { Retry } from '@klarlabs-studio/fortify-retry';
 
 const cb = new CircuitBreaker({ maxFailures: 5 });
 const retry = new Retry({ maxAttempts: 3 });

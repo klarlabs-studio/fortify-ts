@@ -5,7 +5,7 @@ import {
   combineSignals,
   type FortifyLogger,
   noopLogger,
-} from '@fortify-ts/core';
+} from '@klarlabs-studio/fortify-core';
 import { type TimeoutConfig, type TimeoutConfigInput, parseTimeoutConfig } from './config.js';
 
 /**

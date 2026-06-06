@@ -1,13 +1,13 @@
-# @fortify-ts/core
+# @klarlabs-studio/fortify-core
 
 Core types, errors, and utilities for the Fortify-TS resilience library.
 
 ## Installation
 
 ```bash
-npm install @fortify-ts/core
+npm install @klarlabs-studio/fortify-core
 # or
-pnpm add @fortify-ts/core
+pnpm add @klarlabs-studio/fortify-core
 ```
 
 ## Features
@@ -30,7 +30,7 @@ import {
   BulkheadFullError,
   TimeoutError,
   MaxAttemptsReachedError,
-} from '@fortify-ts/core';
+} from '@klarlabs-studio/fortify-core';
 
 try {
   await pattern.execute(operation);
@@ -46,7 +46,7 @@ try {
 ### Retryable Errors
 
 ```typescript
-import { asRetryable, asNonRetryable, isRetryableError } from '@fortify-ts/core';
+import { asRetryable, asNonRetryable, isRetryableError } from '@klarlabs-studio/fortify-core';
 
 // Mark an error as retryable
 throw asRetryable(new Error('Temporary failure'));
@@ -69,7 +69,7 @@ import {
   combineSignals,
   throwIfAborted,
   NEVER_ABORTED_SIGNAL,
-} from '@fortify-ts/core';
+} from '@klarlabs-studio/fortify-core';
 
 // Sleep with cancellation support
 await sleep(1000, signal);
@@ -92,7 +92,7 @@ import {
   circuitBreakerConfigSchema,
   rateLimitConfigSchema,
   bulkheadConfigSchema,
-} from '@fortify-ts/core';
+} from '@klarlabs-studio/fortify-core';
 
 // Validate and parse configuration
 const config = retryConfigSchema.parse({

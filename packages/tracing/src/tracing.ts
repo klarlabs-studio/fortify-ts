@@ -1,4 +1,4 @@
-import { type Operation } from '@fortify-ts/core';
+import { type Operation } from '@klarlabs-studio/fortify-core';
 import {
   type Tracer,
   type Span,

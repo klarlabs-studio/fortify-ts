@@ -1,13 +1,13 @@
-# @fortify-ts/timeout
+# @klarlabs-studio/fortify-timeout
 
 Timeout pattern for the Fortify-TS resilience library.
 
 ## Installation
 
 ```bash
-npm install @fortify-ts/timeout
+npm install @klarlabs-studio/fortify-timeout
 # or
-pnpm add @fortify-ts/timeout
+pnpm add @klarlabs-studio/fortify-timeout
 ```
 
 ## Features
@@ -21,7 +21,7 @@ pnpm add @fortify-ts/timeout
 ### Basic Usage
 
 ```typescript
-import { Timeout } from '@fortify-ts/timeout';
+import { Timeout } from '@klarlabs-studio/fortify-timeout';
 
 const timeout = new Timeout<Response>({
   defaultTimeout: 5000, // 5 seconds

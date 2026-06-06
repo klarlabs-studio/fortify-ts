@@ -1,13 +1,13 @@
-# @fortify-ts/fallback
+# @klarlabs-studio/fortify-fallback
 
 Fallback pattern for the Fortify-TS resilience library.
 
 ## Installation
 
 ```bash
-npm install @fortify-ts/fallback
+npm install @klarlabs-studio/fortify-fallback
 # or
-pnpm add @fortify-ts/fallback
+pnpm add @klarlabs-studio/fortify-fallback
 ```
 
 ## Features
@@ -22,7 +22,7 @@ pnpm add @fortify-ts/fallback
 ### Basic Usage
 
 ```typescript
-import { Fallback } from '@fortify-ts/fallback';
+import { Fallback } from '@klarlabs-studio/fortify-fallback';
 
 const fallback = new Fallback<User>({
   fallback: () => ({ id: 0, name: 'Guest' }),

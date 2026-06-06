@@ -1,7 +1,7 @@
 {
-  "name": "@fortify-ts/logging",
+  "name": "@klarlabs-studio/fortify-logging",
   "version": "0.2.1",
-  "description": "Structured logging utilities for fortify-ts resilience patterns",
+  "description": "Structured logging utilities for Fortify resilience patterns",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -29,7 +29,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fortify-ts/core": "workspace:*"
+    "@klarlabs-studio/fortify-core": "workspace:*"
   },
   "peerDependencies": {
     "pino": "^8.0.0 || ^9.0.0",

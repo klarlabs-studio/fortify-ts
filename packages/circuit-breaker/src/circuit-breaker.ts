@@ -7,7 +7,7 @@ import {
   type FortifyLogger,
   noopLogger,
   NEVER_ABORTED_SIGNAL,
-} from '@fortify-ts/core';
+} from '@klarlabs-studio/fortify-core';
 import {
   type CircuitBreakerConfig,
   type CircuitBreakerConfigInputFull,

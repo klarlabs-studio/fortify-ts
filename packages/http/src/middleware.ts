@@ -3,14 +3,14 @@ import {
   RateLimitExceededError,
   BulkheadFullError,
   TimeoutError,
-} from '@fortify-ts/core';
-import { type CircuitBreaker } from '@fortify-ts/circuit-breaker';
-import { type Retry } from '@fortify-ts/retry';
-import { type RateLimiter } from '@fortify-ts/rate-limit';
-import { type Timeout } from '@fortify-ts/timeout';
-import { type Bulkhead } from '@fortify-ts/bulkhead';
-import { type Fallback } from '@fortify-ts/fallback';
-import { type Chain } from '@fortify-ts/middleware';
+} from '@klarlabs-studio/fortify-core';
+import { type CircuitBreaker } from '@klarlabs-studio/fortify-circuit-breaker';
+import { type Retry } from '@klarlabs-studio/fortify-retry';
+import { type RateLimiter } from '@klarlabs-studio/fortify-rate-limit';
+import { type Timeout } from '@klarlabs-studio/fortify-timeout';
+import { type Bulkhead } from '@klarlabs-studio/fortify-bulkhead';
+import { type Fallback } from '@klarlabs-studio/fortify-fallback';
+import { type Chain } from '@klarlabs-studio/fortify-middleware';
 import {
   type HttpHandler,
   type HttpMiddleware,

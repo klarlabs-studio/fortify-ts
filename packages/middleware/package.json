@@ -1,7 +1,7 @@
 {
-  "name": "@fortify-ts/middleware",
+  "name": "@klarlabs-studio/fortify-middleware",
   "version": "2.0.1",
-  "description": "Middleware composition chain for @fortify-ts resilience patterns",
+  "description": "Middleware composition chain for Fortify resilience patterns",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -32,44 +32,44 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fortify-ts/core": "workspace:*"
+    "@klarlabs-studio/fortify-core": "workspace:*"
   },
   "devDependencies": {
-    "@fortify-ts/bulkhead": "workspace:*",
-    "@fortify-ts/circuit-breaker": "workspace:*",
-    "@fortify-ts/fallback": "workspace:*",
-    "@fortify-ts/rate-limit": "workspace:*",
-    "@fortify-ts/retry": "workspace:*",
-    "@fortify-ts/timeout": "workspace:*",
+    "@klarlabs-studio/fortify-bulkhead": "workspace:*",
+    "@klarlabs-studio/fortify-circuit-breaker": "workspace:*",
+    "@klarlabs-studio/fortify-fallback": "workspace:*",
+    "@klarlabs-studio/fortify-rate-limit": "workspace:*",
+    "@klarlabs-studio/fortify-retry": "workspace:*",
+    "@klarlabs-studio/fortify-timeout": "workspace:*",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "vitest": "^4.1.4"
   },
   "peerDependencies": {
-    "@fortify-ts/bulkhead": "^0.2.1",
-    "@fortify-ts/circuit-breaker": "^0.2.1",
-    "@fortify-ts/fallback": "^0.2.1",
-    "@fortify-ts/rate-limit": "^0.3.1",
-    "@fortify-ts/retry": "^0.2.1",
-    "@fortify-ts/timeout": "^0.2.1"
+    "@klarlabs-studio/fortify-bulkhead": "^0.2.1",
+    "@klarlabs-studio/fortify-circuit-breaker": "^0.2.1",
+    "@klarlabs-studio/fortify-fallback": "^0.2.1",
+    "@klarlabs-studio/fortify-rate-limit": "^0.3.1",
+    "@klarlabs-studio/fortify-retry": "^0.2.1",
+    "@klarlabs-studio/fortify-timeout": "^0.2.1"
   },
   "peerDependenciesMeta": {
-    "@fortify-ts/timeout": {
+    "@klarlabs-studio/fortify-timeout": {
       "optional": true
     },
-    "@fortify-ts/retry": {
+    "@klarlabs-studio/fortify-retry": {
       "optional": true
     },
-    "@fortify-ts/circuit-breaker": {
+    "@klarlabs-studio/fortify-circuit-breaker": {
       "optional": true
     },
-    "@fortify-ts/rate-limit": {
+    "@klarlabs-studio/fortify-rate-limit": {
       "optional": true
     },
-    "@fortify-ts/bulkhead": {
+    "@klarlabs-studio/fortify-bulkhead": {
       "optional": true
     },
-    "@fortify-ts/fallback": {
+    "@klarlabs-studio/fortify-fallback": {
       "optional": true
     }
   },

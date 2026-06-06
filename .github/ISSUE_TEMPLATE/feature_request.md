@@ -19,19 +19,19 @@ A clear and concise description of what you want to happen.
 
 Which package(s) would this feature affect?
 
-- [ ] `@fortify-ts/core`
-- [ ] `@fortify-ts/circuit-breaker`
-- [ ] `@fortify-ts/retry`
-- [ ] `@fortify-ts/rate-limit`
-- [ ] `@fortify-ts/timeout`
-- [ ] `@fortify-ts/bulkhead`
-- [ ] `@fortify-ts/fallback`
-- [ ] `@fortify-ts/middleware`
-- [ ] `@fortify-ts/http`
-- [ ] `@fortify-ts/logging`
-- [ ] `@fortify-ts/metrics`
-- [ ] `@fortify-ts/tracing`
-- [ ] `@fortify-ts/testing`
+- [ ] `@klarlabs-studio/fortify-core`
+- [ ] `@klarlabs-studio/fortify-circuit-breaker`
+- [ ] `@klarlabs-studio/fortify-retry`
+- [ ] `@klarlabs-studio/fortify-rate-limit`
+- [ ] `@klarlabs-studio/fortify-timeout`
+- [ ] `@klarlabs-studio/fortify-bulkhead`
+- [ ] `@klarlabs-studio/fortify-fallback`
+- [ ] `@klarlabs-studio/fortify-middleware`
+- [ ] `@klarlabs-studio/fortify-http`
+- [ ] `@klarlabs-studio/fortify-logging`
+- [ ] `@klarlabs-studio/fortify-metrics`
+- [ ] `@klarlabs-studio/fortify-tracing`
+- [ ] `@klarlabs-studio/fortify-testing`
 - [ ] New package
 
 ## API Design

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { CircuitBreaker } from '../src/circuit-breaker.js';
 import { States } from '../src/state.js';
-import { CircuitOpenError } from '@fortify-ts/core';
+import { CircuitOpenError } from '@klarlabs-studio/fortify-core';
 
 describe('CircuitBreaker', () => {
   beforeEach(() => {

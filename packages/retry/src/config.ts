@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { type FortifyLogger } from '@fortify-ts/core';
+import { type FortifyLogger } from '@klarlabs-studio/fortify-core';
 
 /**
  * Backoff policy enum.

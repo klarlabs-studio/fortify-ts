@@ -1,7 +1,7 @@
 {
-  "name": "@fortify-ts/rate-limit",
+  "name": "@klarlabs-studio/fortify-rate-limit",
   "version": "0.3.1",
-  "description": "Token bucket rate limiter for @fortify-ts",
+  "description": "Token bucket rate limiter for Fortify",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -32,7 +32,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fortify-ts/core": "workspace:*",
+    "@klarlabs-studio/fortify-core": "workspace:*",
     "zod": "^4.3.6"
   },
   "devDependencies": {

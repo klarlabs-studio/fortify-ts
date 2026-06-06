@@ -1,7 +1,7 @@
 {
-  "name": "@fortify-ts/tracing",
+  "name": "@klarlabs-studio/fortify-tracing",
   "version": "0.1.7",
-  "description": "OpenTelemetry tracing for fortify-ts resilience patterns",
+  "description": "OpenTelemetry tracing for Fortify resilience patterns",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -29,7 +29,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fortify-ts/core": "workspace:*"
+    "@klarlabs-studio/fortify-core": "workspace:*"
   },
   "peerDependencies": {
     "@opentelemetry/api": "^1.0.0"

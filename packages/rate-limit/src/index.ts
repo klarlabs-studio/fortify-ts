@@ -36,4 +36,4 @@ export {
   sanitizeStorageKey,
   type RateLimitStorage,
   MemoryStorage,
-} from '@fortify-ts/core';
+} from '@klarlabs-studio/fortify-core';

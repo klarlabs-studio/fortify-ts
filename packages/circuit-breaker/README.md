@@ -1,13 +1,13 @@
-# @fortify-ts/circuit-breaker
+# @klarlabs-studio/fortify-circuit-breaker
 
 Circuit breaker pattern implementation for the Fortify-TS resilience library.
 
 ## Installation
 
 ```bash
-npm install @fortify-ts/circuit-breaker
+npm install @klarlabs-studio/fortify-circuit-breaker
 # or
-pnpm add @fortify-ts/circuit-breaker
+pnpm add @klarlabs-studio/fortify-circuit-breaker
 ```
 
 ## Features
@@ -23,7 +23,7 @@ pnpm add @fortify-ts/circuit-breaker
 ### Basic Usage
 
 ```typescript
-import { CircuitBreaker } from '@fortify-ts/circuit-breaker';
+import { CircuitBreaker } from '@klarlabs-studio/fortify-circuit-breaker';
 
 const breaker = new CircuitBreaker<Response>({
   maxFailures: 5,

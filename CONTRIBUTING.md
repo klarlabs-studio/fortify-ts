@@ -172,7 +172,7 @@ describe('CircuitBreaker', () => {
 ### Creating a New Package
 
 1. Create directory under `packages/`
-2. Add `package.json` with proper naming (`@fortify-ts/package-name`)
+2. Add `package.json` with proper naming (`@klarlabs-studio/fortify-package-name`)
 3. Add `tsconfig.json` extending base config
 4. Add `tsup.config.ts` for building
 5. Export from `src/index.ts`
@@ -185,7 +185,7 @@ describe('CircuitBreaker', () => {
 pnpm build
 
 # Build specific package
-pnpm --filter @fortify-ts/circuit-breaker build
+pnpm --filter @klarlabs-studio/fortify-circuit-breaker build
 ```
 
 ### Testing Packages
@@ -195,7 +195,7 @@ pnpm --filter @fortify-ts/circuit-breaker build
 pnpm test
 
 # Test specific package
-pnpm --filter @fortify-ts/circuit-breaker test
+pnpm --filter @klarlabs-studio/fortify-circuit-breaker test
 
 # Test with coverage
 pnpm test:coverage

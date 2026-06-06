@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fc from 'fast-check';
 import { CircuitBreaker } from '../src/circuit-breaker.js';
 import { States } from '../src/state.js';
-import { CircuitOpenError } from '@fortify-ts/core';
+import { CircuitOpenError } from '@klarlabs-studio/fortify-core';
 
 describe('CircuitBreaker Property-Based Tests', () => {
   beforeEach(() => {

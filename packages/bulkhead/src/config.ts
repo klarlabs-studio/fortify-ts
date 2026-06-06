@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { type FortifyLogger } from '@fortify-ts/core';
+import { type FortifyLogger } from '@klarlabs-studio/fortify-core';
 
 /** Maximum concurrent operations to prevent resource exhaustion */
 const MAX_CONCURRENT = 10_000;

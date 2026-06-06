@@ -1,7 +1,7 @@
 {
-  "name": "@fortify-ts/circuit-breaker",
+  "name": "@klarlabs-studio/fortify-circuit-breaker",
   "version": "0.2.1",
-  "description": "Circuit breaker pattern for Fortify TS resilience library",
+  "description": "Circuit breaker pattern for Fortify resilience library",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -32,7 +32,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fortify-ts/core": "workspace:*",
+    "@klarlabs-studio/fortify-core": "workspace:*",
     "zod": "^4.3.6"
   },
   "devDependencies": {

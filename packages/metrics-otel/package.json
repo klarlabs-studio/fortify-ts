@@ -1,0 +1,76 @@
+{
+  "name": "@klarlabs-studio/fortify-metrics-otel",
+  "version": "0.1.0",
+  "description": "OpenTelemetry metrics adapter for Fortify resilience patterns",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist",
+    "dev": "tsup --watch",
+    "lint": "eslint src tests",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@klarlabs-studio/fortify-core": "workspace:*"
+  },
+  "peerDependencies": {
+    "@opentelemetry/api": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@opentelemetry/api": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/sdk-metrics": "^2.6.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klarlabs-studio/fortify-ts.git",
+    "directory": "packages/metrics-otel"
+  },
+  "homepage": "https://github.com/klarlabs-studio/fortify-ts/tree/main/packages/metrics-otel#readme",
+  "bugs": {
+    "url": "https://github.com/klarlabs-studio/fortify-ts/issues"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "opentelemetry",
+    "otel",
+    "metrics",
+    "resilience",
+    "observability"
+  ],
+  "license": "MIT",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

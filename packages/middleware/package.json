@@ -1,6 +1,6 @@
 {
   "name": "@klarlabs-studio/fortify-middleware",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Middleware composition chain for Fortify resilience patterns",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -35,10 +35,12 @@
     "@klarlabs-studio/fortify-core": "workspace:*"
   },
   "devDependencies": {
+    "@klarlabs-studio/fortify-adaptive": "workspace:*",
     "@klarlabs-studio/fortify-bulkhead": "workspace:*",
     "@klarlabs-studio/fortify-circuit-breaker": "workspace:*",
     "@klarlabs-studio/fortify-cost-budget": "workspace:*",
     "@klarlabs-studio/fortify-fallback": "workspace:*",
+    "@klarlabs-studio/fortify-hedge": "workspace:*",
     "@klarlabs-studio/fortify-rate-limit": "workspace:*",
     "@klarlabs-studio/fortify-retry": "workspace:*",
     "@klarlabs-studio/fortify-timeout": "workspace:*",
@@ -47,16 +49,24 @@
     "vitest": "^4.1.4"
   },
   "peerDependencies": {
+    "@klarlabs-studio/fortify-adaptive": "^0.1.0",
     "@klarlabs-studio/fortify-bulkhead": "^0.2.1",
     "@klarlabs-studio/fortify-circuit-breaker": "^0.2.1",
     "@klarlabs-studio/fortify-cost-budget": "^0.1.0",
     "@klarlabs-studio/fortify-fallback": "^0.2.1",
+    "@klarlabs-studio/fortify-hedge": "^0.1.0",
     "@klarlabs-studio/fortify-rate-limit": "^0.3.1",
     "@klarlabs-studio/fortify-retry": "^0.2.1",
     "@klarlabs-studio/fortify-timeout": "^0.2.1"
   },
   "peerDependenciesMeta": {
+    "@klarlabs-studio/fortify-adaptive": {
+      "optional": true
+    },
     "@klarlabs-studio/fortify-cost-budget": {
+      "optional": true
+    },
+    "@klarlabs-studio/fortify-hedge": {
       "optional": true
     },
     "@klarlabs-studio/fortify-timeout": {

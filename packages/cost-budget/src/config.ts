@@ -14,12 +14,40 @@ import { type FortifyLogger } from '@klarlabs-studio/fortify-core';
 export type CostFunc<T> = (result: T | undefined, error: Error | undefined) => number;
 
 /**
+ * Upper bound for any monetary amount (the `maxCost` ceiling and each
+ * `costFunc` return). Mirrors Go fortify's micro-USD overflow rejection:
+ * beyond `Number.MAX_SAFE_INTEGER` float arithmetic loses integer precision and
+ * cost accounting becomes unreliable (and can saturate to `Infinity`), so such
+ * values are rejected rather than silently disabling or corrupting the cap.
+ */
+export const MAX_SAFE_COST = Number.MAX_SAFE_INTEGER;
+
+/**
+ * Whether a number is a safe, finite, positive monetary amount. Shared by the
+ * `maxCost` validation and the per-call `costFunc` guard so the money-safety
+ * checks cannot drift between the two. Rejects NaN, ±Infinity, non-positive
+ * values, and magnitudes beyond {@link MAX_SAFE_COST}.
+ */
+export function isSafePositiveCost(value: number): boolean {
+  return Number.isFinite(value) && value > 0 && value <= MAX_SAFE_COST;
+}
+
+/**
  * Zod schema for the validatable (non-function) parts of the config.
  * Function and generic fields are validated separately.
  */
 export const costBudgetConfigSchema = z.object({
-  /** Spending ceiling; must be positive. */
-  maxCost: z.number().positive(),
+  /**
+   * Spending ceiling; must be a positive, finite amount within
+   * {@link MAX_SAFE_COST}. `z.number()` already rejects NaN/±Infinity; the
+   * refinement adds the safe-integer overflow guard.
+   */
+  maxCost: z
+    .number()
+    .positive()
+    .refine((v) => v <= MAX_SAFE_COST, {
+      message: `maxCost must not exceed ${String(MAX_SAFE_COST)} (safe-integer money range)`,
+    }),
   /** Rolling-window duration in milliseconds; must be positive when set. */
   resetAfter: z.number().positive().optional(),
 });

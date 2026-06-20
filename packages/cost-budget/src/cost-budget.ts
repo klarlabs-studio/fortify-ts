@@ -7,7 +7,11 @@ import {
   NEVER_ABORTED_SIGNAL,
   now as monotonicNow,
 } from '@klarlabs-studio/fortify-core';
-import { type CostBudgetConfig, validateCostBudgetConfig } from './config.js';
+import {
+  type CostBudgetConfig,
+  validateCostBudgetConfig,
+  isSafePositiveCost,
+} from './config.js';
 import { BudgetExceededError } from './error.js';
 
 /**
@@ -164,7 +168,11 @@ export class CostBudget<T> implements Pattern<T>, Resettable {
   private safeCost(result: T | undefined, error: Error | undefined): number {
     try {
       const cost = this.config.costFunc(result, error);
-      return Number.isFinite(cost) && cost > 0 ? cost : 0;
+      // Money-safety guard (parity with Go): a non-finite, non-positive, or
+      // overflowing cost is treated as zero so a bad reading cannot corrupt
+      // accounting or instantly breach. Shared with the maxCost validation so
+      // the guards cannot drift.
+      return isSafePositiveCost(cost) ? cost : 0;
     } catch (callbackError) {
       this.logger.error('costFunc threw an error', {
         error: callbackError instanceof Error ? callbackError.message : String(callbackError),

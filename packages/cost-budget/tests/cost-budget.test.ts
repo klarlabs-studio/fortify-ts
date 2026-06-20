@@ -22,6 +22,35 @@ describe('CostBudget', () => {
       expect(() => new CostBudget<string>({ maxCost: 0, costFunc: () => 1 })).toThrow();
       expect(() => new CostBudget<string>({ maxCost: -1, costFunc: () => 1 })).toThrow();
     });
+
+    it('throws when maxCost is NaN or non-finite', () => {
+      // Money-safety parity with Go: a non-finite ceiling cannot gate and is a
+      // misconfiguration, so construction must fail loudly rather than silently
+      // disabling the spend cap.
+      expect(() => new CostBudget<string>({ maxCost: Number.NaN, costFunc: () => 1 })).toThrow();
+      expect(
+        () => new CostBudget<string>({ maxCost: Number.POSITIVE_INFINITY, costFunc: () => 1 })
+      ).toThrow();
+      expect(
+        () => new CostBudget<string>({ maxCost: Number.NEGATIVE_INFINITY, costFunc: () => 1 })
+      ).toThrow();
+    });
+
+    it('throws when maxCost overflows safe-integer money accounting', () => {
+      // Mirrors Go's micro-USD overflow rejection: a ceiling beyond the range
+      // where float accounting stays reliable is rejected rather than risking a
+      // cap that arithmetic can saturate past.
+      expect(
+        () => new CostBudget<string>({ maxCost: Number.MAX_VALUE, costFunc: () => 1 })
+      ).toThrow();
+      expect(
+        () =>
+          new CostBudget<string>({
+            maxCost: Number.MAX_SAFE_INTEGER + 1,
+            costFunc: () => 1,
+          })
+      ).toThrow();
+    });
   });
 
   describe('accumulation', () => {
@@ -120,6 +149,29 @@ describe('CostBudget', () => {
         })
         .catch(() => undefined);
       expect(seenError).toBe(sentinel);
+    });
+
+    it('ignores a non-finite or overflowing cost (charges nothing)', async () => {
+      // Money-safety parity with Go: a bad costFunc return (NaN/Infinity or a
+      // value beyond safe-integer money range) must not corrupt accounting or
+      // instantly breach — it is treated as zero.
+      for (const bad of [
+        Number.NaN,
+        Number.POSITIVE_INFINITY,
+        Number.NEGATIVE_INFINITY,
+        Number.MAX_VALUE,
+        Number.MAX_SAFE_INTEGER + 1,
+        -5,
+      ]) {
+        const budget = new CostBudget<string>({
+          maxCost: 1.0,
+          costFunc: () => bad,
+        });
+        for (let i = 0; i < 5; i++) {
+          await expect(budget.execute(async () => 'ok')).resolves.toBe('ok');
+        }
+        expect(budget.getConsumedCost()).toBe(0);
+      }
     });
 
     it('charges even when the operation throws (and re-throws the original error)', async () => {

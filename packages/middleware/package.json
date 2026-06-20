@@ -1,6 +1,6 @@
 {
   "name": "@klarlabs-studio/fortify-middleware",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Middleware composition chain for Fortify resilience patterns",
   "type": "module",
   "main": "./dist/index.cjs",

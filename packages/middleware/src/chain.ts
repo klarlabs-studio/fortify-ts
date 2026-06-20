@@ -5,6 +5,7 @@ import { type CircuitBreaker } from '@klarlabs-studio/fortify-circuit-breaker';
 import { type RateLimiter } from '@klarlabs-studio/fortify-rate-limit';
 import { type Bulkhead } from '@klarlabs-studio/fortify-bulkhead';
 import { type Fallback } from '@klarlabs-studio/fortify-fallback';
+import { type CostBudget } from '@klarlabs-studio/fortify-cost-budget';
 
 /**
  * Middleware function type that wraps an operation with resilience behavior.
@@ -123,6 +124,23 @@ export class Chain<T> implements Pattern<T> {
    */
   withFallback(fb: Fallback<T>): this {
     const middleware: Middleware<T> = (next) => (signal) => fb.execute(next, signal);
+    this.middlewares.push(middleware);
+    return this;
+  }
+
+  /**
+   * Add a cost budget to the middleware chain.
+   *
+   * Place the budget inside retry (i.e. add it after withRetry) so each
+   * attempt is charged, capping the total cost of a retry storm. Once the
+   * budget's ceiling is reached, execute rejects with a
+   * BudgetExceededError and the operation is refused.
+   *
+   * @param cb - Cost budget instance
+   * @returns this chain for method chaining
+   */
+  withCostBudget(cb: CostBudget<T>): this {
+    const middleware: Middleware<T> = (next) => (signal) => cb.execute(next, signal);
     this.middlewares.push(middleware);
     return this;
   }

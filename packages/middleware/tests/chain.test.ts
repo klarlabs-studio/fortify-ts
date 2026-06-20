@@ -6,6 +6,7 @@ import { RateLimiter } from '@klarlabs-studio/fortify-rate-limit';
 import { Timeout } from '@klarlabs-studio/fortify-timeout';
 import { Bulkhead } from '@klarlabs-studio/fortify-bulkhead';
 import { Fallback } from '@klarlabs-studio/fortify-fallback';
+import { CostBudget, BudgetExceededError } from '@klarlabs-studio/fortify-cost-budget';
 
 describe('Chain', () => {
   beforeEach(() => {
@@ -113,6 +114,30 @@ describe('Chain', () => {
       });
 
       expect(result).toBe('fallback');
+    });
+  });
+
+  describe('withCostBudget', () => {
+    it('should wrap operation with a cost budget', async () => {
+      const cb = new CostBudget<string>({ maxCost: 10, costFunc: () => 1 });
+      const chain = new Chain<string>().withCostBudget(cb);
+
+      const result = await chain.execute(async () => 'success');
+      expect(result).toBe('success');
+    });
+
+    it('should refuse work once the budget is exceeded', async () => {
+      const cb = new CostBudget<string>({ maxCost: 1, costFunc: () => 0.6 });
+      const chain = new Chain<string>().withCostBudget(cb);
+
+      await chain.execute(async () => 'a');
+      await expect(chain.execute(async () => 'a')).rejects.toBeInstanceOf(BudgetExceededError);
+    });
+
+    it('should return this for chaining', () => {
+      const cb = new CostBudget<string>({ maxCost: 10, costFunc: () => 1 });
+      const chain = new Chain<string>();
+      expect(chain.withCostBudget(cb)).toBe(chain);
     });
   });
 

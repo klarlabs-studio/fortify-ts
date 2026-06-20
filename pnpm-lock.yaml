@@ -265,6 +265,9 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@klarlabs-studio/fortify-adaptive':
+        specifier: workspace:*
+        version: link:../adaptive
       '@klarlabs-studio/fortify-bulkhead':
         specifier: workspace:*
         version: link:../bulkhead
@@ -277,6 +280,9 @@ importers:
       '@klarlabs-studio/fortify-fallback':
         specifier: workspace:*
         version: link:../fallback
+      '@klarlabs-studio/fortify-hedge':
+        specifier: workspace:*
+        version: link:../hedge
       '@klarlabs-studio/fortify-rate-limit':
         specifier: workspace:*
         version: link:../rate-limit

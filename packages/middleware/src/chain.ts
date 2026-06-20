@@ -6,6 +6,8 @@ import { type RateLimiter } from '@klarlabs-studio/fortify-rate-limit';
 import { type Bulkhead } from '@klarlabs-studio/fortify-bulkhead';
 import { type Fallback } from '@klarlabs-studio/fortify-fallback';
 import { type CostBudget } from '@klarlabs-studio/fortify-cost-budget';
+import { type Hedge } from '@klarlabs-studio/fortify-hedge';
+import { type AdaptiveLimiter } from '@klarlabs-studio/fortify-adaptive';
 
 /**
  * Middleware function type that wraps an operation with resilience behavior.
@@ -141,6 +143,38 @@ export class Chain<T> implements Pattern<T> {
    */
   withCostBudget(cb: CostBudget<T>): this {
     const middleware: Middleware<T> = (next) => (signal) => cb.execute(next, signal);
+    this.middlewares.push(middleware);
+    return this;
+  }
+
+  /**
+   * Add hedged-request execution to the middleware chain.
+   *
+   * Place hedge innermost (i.e. add it last) so hedging multiplies only the
+   * operation itself, not the surrounding patterns. Use only with idempotent
+   * operations — hedge attempts may run to completion in parallel before
+   * cancellation propagates.
+   *
+   * @param hedge - Hedge instance
+   * @returns this chain for method chaining
+   */
+  withHedge(hedge: Hedge<T>): this {
+    const middleware: Middleware<T> = (next) => (signal) => hedge.execute(next, signal);
+    this.middlewares.push(middleware);
+    return this;
+  }
+
+  /**
+   * Add an adaptive concurrency limiter to the middleware chain.
+   *
+   * Place it outermost (i.e. add it first, before bulkhead) to shed load
+   * before any pattern-specific work occurs.
+   *
+   * @param adaptive - Adaptive limiter instance
+   * @returns this chain for method chaining
+   */
+  withAdaptive(adaptive: AdaptiveLimiter<T>): this {
+    const middleware: Middleware<T> = (next) => (signal) => adaptive.execute(next, signal);
     this.middlewares.push(middleware);
     return this;
   }

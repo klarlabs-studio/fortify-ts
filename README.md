@@ -11,10 +11,13 @@ Production-grade resilience and fault-tolerance library for TypeScript.
 
 - **Circuit Breaker** - Prevent cascading failures with automatic recovery
 - **Retry** - Intelligent retry with exponential backoff and jitter
+- **Hedge** - Issue parallel redundant requests to cut tail latency
 - **Rate Limiter** - Token bucket rate limiting with per-key support
 - **Timeout** - Enforce time limits on async operations
 - **Bulkhead** - Limit concurrent operations with optional queuing
 - **Fallback** - Graceful degradation when primary operations fail
+- **Adaptive Concurrency** - Auto-tune the concurrency cap (AIMD/Vegas/Gradient2)
+- **Cost Budget** - Stop calls when accumulated cost exceeds a threshold
 - **Middleware Chain** - Compose resilience patterns fluently
 
 ## Installation
@@ -114,14 +117,18 @@ const result = await chain.execute(async (signal) => {
 | `@klarlabs-studio/fortify-core` | Shared types, errors, utilities | ✅ |
 | `@klarlabs-studio/fortify-circuit-breaker` | Circuit breaker pattern | ✅ |
 | `@klarlabs-studio/fortify-retry` | Retry with backoff strategies | ✅ |
+| `@klarlabs-studio/fortify-hedge` | Hedged requests for tail-latency reduction | ✅ |
 | `@klarlabs-studio/fortify-rate-limit` | Token bucket rate limiter | ✅ |
 | `@klarlabs-studio/fortify-timeout` | Timeout wrapper | ✅ |
 | `@klarlabs-studio/fortify-bulkhead` | Concurrency limiter with queue | ✅ |
 | `@klarlabs-studio/fortify-fallback` | Fallback pattern | ✅ |
+| `@klarlabs-studio/fortify-adaptive` | Adaptive concurrency (AIMD/Vegas/Gradient2) | ✅ |
+| `@klarlabs-studio/fortify-cost-budget` | Cost budget (LLM spend control) | ✅ |
 | `@klarlabs-studio/fortify-middleware` | Pattern composition chain | ✅ |
 | `@klarlabs-studio/fortify-http` | Framework-agnostic HTTP utilities | ✅ |
 | `@klarlabs-studio/fortify-logging` | Structured logging adapters | ✅* |
 | `@klarlabs-studio/fortify-metrics` | Prometheus metrics | ❌ |
+| `@klarlabs-studio/fortify-metrics-otel` | OpenTelemetry metrics | ✅* |
 | `@klarlabs-studio/fortify-tracing` | OpenTelemetry tracing | ✅* |
 | `@klarlabs-studio/fortify-testing` | Chaos engineering utilities | ✅ |
 

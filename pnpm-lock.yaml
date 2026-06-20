@@ -233,6 +233,9 @@ importers:
       '@klarlabs-studio/fortify-circuit-breaker':
         specifier: workspace:*
         version: link:../circuit-breaker
+      '@klarlabs-studio/fortify-cost-budget':
+        specifier: workspace:*
+        version: link:../cost-budget
       '@klarlabs-studio/fortify-fallback':
         specifier: workspace:*
         version: link:../fallback

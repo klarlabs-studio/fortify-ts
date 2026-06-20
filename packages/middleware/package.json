@@ -37,6 +37,7 @@
   "devDependencies": {
     "@klarlabs-studio/fortify-bulkhead": "workspace:*",
     "@klarlabs-studio/fortify-circuit-breaker": "workspace:*",
+    "@klarlabs-studio/fortify-cost-budget": "workspace:*",
     "@klarlabs-studio/fortify-fallback": "workspace:*",
     "@klarlabs-studio/fortify-rate-limit": "workspace:*",
     "@klarlabs-studio/fortify-retry": "workspace:*",
@@ -48,12 +49,16 @@
   "peerDependencies": {
     "@klarlabs-studio/fortify-bulkhead": "^0.2.1",
     "@klarlabs-studio/fortify-circuit-breaker": "^0.2.1",
+    "@klarlabs-studio/fortify-cost-budget": "^0.1.0",
     "@klarlabs-studio/fortify-fallback": "^0.2.1",
     "@klarlabs-studio/fortify-rate-limit": "^0.3.1",
     "@klarlabs-studio/fortify-retry": "^0.2.1",
     "@klarlabs-studio/fortify-timeout": "^0.2.1"
   },
   "peerDependenciesMeta": {
+    "@klarlabs-studio/fortify-cost-budget": {
+      "optional": true
+    },
     "@klarlabs-studio/fortify-timeout": {
       "optional": true
     },

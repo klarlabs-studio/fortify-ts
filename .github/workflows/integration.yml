@@ -1,0 +1,106 @@
+# Repo-specific extras not covered by the shared klarlabs-studio JS/TS CI.
+# The reusable js-ci.yml runs lint + typecheck + test + build + nox. It runs
+# `test` (not `test:coverage`), so the coverage run + threshold gate below is
+# preserved here. Also keeps the Node 20/22 matrix and Turborepo cache.
+name: Integration
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["**.md", "docs/**", "LICENSE"]
+  pull_request:
+    branches: [main]
+    paths-ignore: ["**.md", "docs/**", "LICENSE"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  coverage:
+    name: Coverage (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # PRs use Node 22 only; push to main keeps both 20 + 22.
+        node-version: ${{ github.event_name == 'pull_request' && fromJSON('["22"]') || fromJSON('["20", "22"]') }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Cache Turborepo
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Test with Coverage
+        run: pnpm test:coverage
+
+      - name: Check Coverage Thresholds
+        if: matrix.node-version == '20'
+        run: |
+          # Extract coverage percentages from coverage-summary.json
+          COVERAGE_FILE="coverage/coverage-summary.json"
+          if [ -f "$COVERAGE_FILE" ]; then
+            LINES=$(node -e "console.log(require('./$COVERAGE_FILE').total.lines.pct)")
+            STATEMENTS=$(node -e "console.log(require('./$COVERAGE_FILE').total.statements.pct)")
+            FUNCTIONS=$(node -e "console.log(require('./$COVERAGE_FILE').total.functions.pct)")
+            BRANCHES=$(node -e "console.log(require('./$COVERAGE_FILE').total.branches.pct)")
+
+            echo "Coverage Report:"
+            echo "  Lines:      $LINES%"
+            echo "  Statements: $STATEMENTS%"
+            echo "  Functions:  $FUNCTIONS%"
+            echo "  Branches:   $BRANCHES%"
+
+            # Thresholds (80% minimum)
+            THRESHOLD=80
+
+            FAILED=0
+            if (( $(echo "$LINES < $THRESHOLD" | bc -l) )); then
+              echo "Lines coverage ($LINES%) is below threshold ($THRESHOLD%)"
+              FAILED=1
+            fi
+            if (( $(echo "$STATEMENTS < $THRESHOLD" | bc -l) )); then
+              echo "Statements coverage ($STATEMENTS%) is below threshold ($THRESHOLD%)"
+              FAILED=1
+            fi
+            if (( $(echo "$FUNCTIONS < $THRESHOLD" | bc -l) )); then
+              echo "Functions coverage ($FUNCTIONS%) is below threshold ($THRESHOLD%)"
+              FAILED=1
+            fi
+            if (( $(echo "$BRANCHES < $THRESHOLD" | bc -l) )); then
+              echo "Branches coverage ($BRANCHES%) is below threshold ($THRESHOLD%)"
+              FAILED=1
+            fi
+
+            if [ $FAILED -eq 1 ]; then
+              echo ""
+              echo "Coverage thresholds not met. Please add more tests."
+              exit 1
+            else
+              echo "All coverage thresholds met."
+            fi
+          else
+            echo "Coverage summary file not found"
+            exit 1
+          fi

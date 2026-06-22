@@ -100,22 +100,30 @@ describe('RateLimiter Property-Based Tests', () => {
               interval: 1000,
             });
 
-            // Each key should have its own independent limit
-            const allowedPerKey: Record<string, number> = {};
+            // Each key should have its own independent limit.
+            // Use a Map (not a plain object) for bookkeeping: fast-check can
+            // generate strings like "__proto__", "constructor", or "toString"
+            // that collide with Object.prototype members when used as plain
+            // object keys, which would corrupt the test's own accounting rather
+            // than reveal anything about the limiter. The limiter itself stores
+            // buckets in a real Map and isolates such keys correctly.
+            const allowedPerKey = new Map<string, number>();
 
             for (const key of uniqueKeys) {
-              allowedPerKey[key] = 0;
+              let allowed = 0;
               // Try to use all tokens for this key
               for (let i = 0; i < rate + 10; i++) {
                 if (limiter.allow(key)) {
-                  allowedPerKey[key]++;
+                  allowed++;
                 }
               }
+              allowedPerKey.set(key, allowed);
             }
 
-            // Each key should have been able to use up to burst tokens
+            // Each key should have been able to use up to burst tokens,
+            // independent of every other key (no shared counter/state).
             for (const key of uniqueKeys) {
-              expect(allowedPerKey[key]).toBe(rate);
+              expect(allowedPerKey.get(key)).toBe(rate);
             }
           }
         ),

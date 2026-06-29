@@ -41,11 +41,11 @@
     }
   },
   "devDependencies": {
-    "fast-check": "^4.6.0",
+    "fast-check": "^4.8.0",
     "pino": "^10.3.1",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.4"
+    "vitest": "^4.1.9"
   },
   "repository": {
     "type": "git",

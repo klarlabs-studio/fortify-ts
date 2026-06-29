@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@klarlabs-studio/fortify-core": "workspace:*",
-    "zod": "^4.3.6"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "fast-check": "^4.6.0",

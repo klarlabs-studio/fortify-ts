@@ -46,7 +46,7 @@
     "@klarlabs-studio/fortify-timeout": "workspace:*",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.4"
+    "vitest": "^4.1.9"
   },
   "peerDependencies": {
     "@klarlabs-studio/fortify-adaptive": "^0.1.0",

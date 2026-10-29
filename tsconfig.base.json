@@ -21,7 +21,8 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noImplicitReturns": true,
-    "noImplicitOverride": true
+    "noImplicitOverride": true,
+    "types": ["node"]
   },
   "exclude": ["node_modules", "dist"]
 }
